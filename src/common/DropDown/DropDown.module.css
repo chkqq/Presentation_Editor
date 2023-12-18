@@ -15,10 +15,10 @@
     width: auto;
     height: 35px;
 
-    color: #343434;
+    color: #f5f5f5;
 
     box-sizing: border-box;
-    border: 1px solid #343434;
+    border: 1px solid #f5f5f5;
     border-radius: 5px;
     background: center no-repeat none;
 
@@ -34,8 +34,8 @@
 }
 
 .drop_down_active {
-    border-color: #2824EE;
-    color: #2824EE;
+    border-color: #ff9100;
+    color: #ff9100;
 }
 
 .text_container::after {
@@ -54,7 +54,8 @@
     height: auto;
     padding: 7px 0;
 
-    background: #FFFFFF;
+    background: #585858;
+    color: #f5f5f5;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 
@@ -81,26 +82,26 @@
     cursor: pointer;
 }
 
-.figure::after, .image::after {
+.figure::after {
     content: url('./icons/arrow--left.svg');
     width: 6px;
     height: 11px;
     margin-right: 10px;
 }
 
-.figure_active, .image_active, .text:hover {
+.figure_active, .image:hover, .text:hover {
     background: rgba(40, 36, 238, 0.1);
-    color: #2824EE;
+    color: #ff9100;
 }
 
-.figure_active::after, .image_active::after {
+.figure_active::after {
     content: url('./icons/arrow--left-active.svg');
 }
 
 .figure_types {
     width: auto;
     height: auto;
-    background: #FFFFFF;
+    background: #585858;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     position: absolute;
@@ -112,7 +113,7 @@
 .rectangle, .triangle, .circle {
     width: 35px;
     height: 35px;
-    background-color: #FFFFFF;
+    background-color: #585858;
     border-radius: 5px;
 }
 
@@ -163,7 +164,7 @@
 
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    background-color: #FFFFFF;
+    background-color: #585858;
 
     position: absolute;
     top: 42px;

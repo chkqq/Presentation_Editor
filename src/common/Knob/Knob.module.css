@@ -2,7 +2,7 @@
     height: 35px;
     width: 93px;
 
-    border: 1px solid #000;
+    border: 1px solid #eeeeee;
     border-radius: 5px;
     border-spacing: 0px;
 
@@ -20,8 +20,8 @@
     width: 49px;
     height: 35px;
 
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
     box-sizing: content-box;
 
     font-family: Montserrat;

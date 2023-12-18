@@ -3,11 +3,11 @@
     font-weight: 500;
     font-size: 13px;
 
-    color: #343434;
+    color: #f5f5f5;
 
     border: 1px solid;
-    border-color: #343434;
-    
+    border-color: #585858;
+    background-color: #585858;
     border-radius: 5px;
 
     padding: 8px 10px;
@@ -26,7 +26,7 @@
 
 .input:hover {
     cursor: pointer;
-    background-color: rgba(40, 36, 238, 0.1)
+    background-color: #181818;
 }
 
 .input:focus {

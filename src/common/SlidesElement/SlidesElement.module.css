@@ -6,7 +6,7 @@
 
 .element_active {
     position: absolute;
-    border: 2px solid #2824EE;
+    border: 2px solid #ff9100;
     box-sizing: content-box;
 }
 
@@ -15,7 +15,7 @@
     height: 10px;
 
     background: #FFFFFF;
-    border: 1px solid #2824EE;
+    border: 1px solid #ff9100;
     box-sizing: border-box;
     position: absolute;
 }

@@ -90,9 +90,9 @@ const ToolBar = ({
                             />
                         </div>
                         <div className={styles.outline_button}>
-                            <Button 
-                                viewStyle='outline' 
-                                text='Сохранить' 
+                            <Button
+                                viewStyle='outline'
+                                text='Сохранить'
                                 onClick={() => saveDoc()}
                             />
                         </div>
@@ -132,12 +132,6 @@ const ToolBar = ({
                             viewStyle='arrow_up'
                             onClick={() => switchSlidePositions(-1)}
                         />
-                    </div>
-                    <div className={styles.icon_button}>
-                        <button />
-                    </div>
-                    <div className={styles.icon_button}>
-                        <button />
                     </div>
                 </div>
                 <div className={styles.slide_editor_buttons_block}>
@@ -219,6 +213,7 @@ function OptionalTools({ textSelected, figureSelected, firstSelectedElement, onC
                     step = {1}
                     onClick={(value) => changeTextSize(value)}
                 />
+                <p className={styles.optional_tools_text}>Жирность шрифта</p>
                 <Knob
                     value={firstSelectedElement.textProps!.fontWeight}
                     step = {100}

@@ -64,11 +64,22 @@ const DropDownOptions = ({onClick, addObject, addImage}: DropDownOptionsProps) =
             >
                 Фигура
             </div>
-            <div 
+            <div
                 className = {`${styles.image} ${activeImage && styles.image}`}
                 onClick = {() => {
-                    setActiveImage(!activeImage);
-                    setActiveFigure(false);
+                    const inputFile = document.createElement('input');
+                    inputFile.type = 'file';
+                    inputFile.style.display = 'none';
+                    inputFile.accept = 'image/*';
+                    inputFile.onchange = () => {
+                        if (inputFile.files) {
+                            const urlImage = URL.createObjectURL(inputFile.files[0])
+                            addImage(urlImage)
+                        }
+                    }
+                    inputFile.click();
+                    inputFile.remove();
+                    onClick()
                 }}
             >
                 Изображение
@@ -80,7 +91,7 @@ const DropDownOptions = ({onClick, addObject, addImage}: DropDownOptionsProps) =
                     setActiveImage(false);
                     setActiveFigure(false);
                     onClick();
-                }}  
+                }}
             >
                 Текст
             </div>

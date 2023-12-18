@@ -112,8 +112,6 @@ function mainReducer(state: Editor = initialState, action: ActionType): Editor {
                                 && (action.type !== 'SWITCH_PREVIEW')
                                 && (action.type !== 'UPLOAD_DOCUMENT')
                                 && (action.type !== 'SWITCH_PREVIEW')
-                                && (action.type !== 'UNDO')
-                                && (action.type !== 'REDO');
     const indexCurrentSlide: number = state.presentation.slides.findIndex(slide => slide.slideId === state.presentation.currentSlideIds[0]);
     const newState: Editor = editorReducer(state, action);
     if (addInHistory) {newState.history = addActionToHistoryReducer(state)}
