@@ -1,0 +1,17 @@
+.slide_container {
+    width: 81vw;
+    height: 76vh;
+    background: #ECECEC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.slide_container > slide {
+    width: 10px;
+}
+
+.slide_element {
+    list-style-type: none;
+}

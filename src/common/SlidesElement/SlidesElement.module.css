@@ -1,0 +1,55 @@
+.element {
+    position: absolute;
+    box-sizing: content-box;
+    padding: 2px;
+}
+
+.element_active {
+    position: absolute;
+    border: 2px solid #2824EE;
+    box-sizing: content-box;
+}
+
+.point {
+    width: 10px;
+    height: 10px;
+
+    background: #FFFFFF;
+    border: 1px solid #2824EE;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.point_top_left {
+    top: -6px;
+    left: -6px;
+}
+
+.point_top_right {
+    top: -6px;
+    right: -6px;
+}
+
+.point_bottom_left {
+    bottom: -6px;
+    left: -6px;
+}
+
+.point_bottom_right {
+    bottom: -6px;
+    right: -6px;
+}
+
+.point_top_left,
+.point_bottom_right {
+    cursor: nwse-resize;
+}
+
+.point_top_right,
+.point_bottom_left {
+    cursor: nesw-resize;
+}
+
+.image_element {
+    pointer-events: none;
+}

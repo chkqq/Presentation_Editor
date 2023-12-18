@@ -1,0 +1,35 @@
+.input {  
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 13px;
+
+    color: #343434;
+
+    border: 1px solid;
+    border-color: #343434;
+    
+    border-radius: 5px;
+
+    padding: 8px 10px;
+    box-sizing: border-box;
+}
+
+.small {
+    height: 35px;
+    width: 100px;
+}
+
+.big {
+    height: 46px;
+    width: 375px;
+}
+
+.input:hover {
+    cursor: pointer;
+    background-color: rgba(40, 36, 238, 0.1)
+}
+
+.input:focus {
+    border-color: #2824EE;
+}
+

@@ -1,0 +1,49 @@
+.table {
+    height: 35px;
+    width: 93px;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    border-spacing: 0px;
+
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.row, .table_head {
+    width: inherit;
+    height: 100%;
+    margin-top: -1px;
+}
+
+.value {
+    width: 49px;
+    height: 35px;
+
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    box-sizing: content-box;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+
+    text-align: center;
+    vertical-align: center;
+}
+
+.minus {
+    width: 20px;
+    background: center no-repeat url('./icons/minus.svg');
+}
+
+.plus {
+    width: 20px;
+    background: center no-repeat url('./icons/plus.svg');
+}
+
+.minus:hover,
+.plus:hover {
+    cursor: pointer;
+}

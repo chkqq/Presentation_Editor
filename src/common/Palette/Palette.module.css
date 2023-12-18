@@ -1,0 +1,26 @@
+.palette {
+    width: 220px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.palette_element {
+    display: inline;
+
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+
+    list-style-type: none;
+    
+    border-radius: 20px;
+}
+
+.palette_element_selected {
+    box-shadow: 0px 0px 3px 3px rgba(40, 36, 238, 0.5);
+}
+
+.palette_element:hover {
+    cursor: pointer;
+}

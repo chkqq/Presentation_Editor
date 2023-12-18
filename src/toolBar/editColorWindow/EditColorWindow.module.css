@@ -1,0 +1,70 @@
+.edit_color_window {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.27);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.frame {
+    width: 360px;
+    height: auto;
+    background: #FFF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.head_text {
+    margin-top: 26px;
+    margin-left: 29px;
+    margin-bottom: 16px;
+    font-family: Montserrat;
+    font-size: 30px;
+}
+
+.hr {
+    color: #71C156;
+    width: 300px;
+    align-self: center;
+    height: 2px;
+}
+
+.palette_block {
+    display: flex;
+    flex-direction: row;
+    margin-top: 35px;
+    margin-right: 31px;
+    margin-left: 29px;
+    margin-bottom: 29px;
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    align-content: space-between;
+}
+
+.secondary_text {
+    font-family: Montserrat;
+    font-size: 13px;
+}
+
+.change_value {
+    margin-left: 29px;
+    margin-right: 31px;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+    flex-wrap: wrap; 
+    align-content: space-between;
+}
+
+.ready_button_block {
+    display: inline-flex;
+    margin: 16px 32px 40px 32px;
+    justify-content: space-between;
+}

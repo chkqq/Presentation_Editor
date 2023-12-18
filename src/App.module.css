@@ -1,0 +1,37 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+}
+
+.app_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.pres_view {
+    display: flex;
+    margin-top: 10px;
+}
+
+.preview_container,
+.app_content {
+    width: inherit;
+    height: inherit;
+}
+
+.preview_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    background: #202020;
+}
+
+.preview_slide {
+    user-select: none;
+    transform: scale(1.65);
+    pointer-events: none;
+    display: block;
+}

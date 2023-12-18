@@ -1,0 +1,102 @@
+.button {
+    
+    min-width: 41px;
+    height: 35px;
+
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 13px;
+
+    color: #343434;
+
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    background: center no-repeat none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px 10px;
+}
+
+.button_outline:hover,
+.button_default:hover {
+    cursor: pointer;
+    color: #2824EE;
+}
+
+.button_default:hover {
+    background-color: rgba(40, 36, 238, 0.1);
+}
+
+.button_outline {
+    border: 1px solid #343434;
+}
+
+.button_outline:hover {
+    border-color: #2824EE;
+}
+
+.button_delete {
+    background: center no-repeat url('./icons/delete-default.svg');
+}
+
+.button_delete:hover {
+    background: center no-repeat url('./icons/delete-focused.svg');
+}
+
+.button_redo {
+    background: center no-repeat url('./icons/redo-default.svg');
+}
+
+.button_redo:hover {
+    background: center no-repeat url('./icons/redo-focused.svg');
+}
+
+.button_undo {
+    background: center no-repeat url('./icons/undo-default.svg');
+}
+
+.button_undo:hover {
+    background: center no-repeat url('./icons/undo-focused.svg');
+}
+
+.button_arrow_down {
+    background: center no-repeat url('./icons/arrow_down-default.svg');
+}
+
+.button_arrow_down:hover {
+    background: center no-repeat url('./icons/arrow_down-focused.svg');
+}
+
+.button_arrow_up {
+    background: center no-repeat url('./icons/arrow_up-default.svg');
+}
+
+.button_arrow_up:hover {
+    background: center no-repeat url('./icons/arrow_up-focused.svg');
+}
+
+
+.button_undo:hover,
+.button_redo:hover,
+.button_delete:hover,
+.button_sign:hover,
+.button_arrow_down:hover,
+.button_arrow_up:hover {
+    background-color: rgba(40, 36, 238, 0.1);
+    cursor: pointer;
+    color: #2824EE;
+}
+
+.text {
+    white-space: nowrap;
+}
+
+.text_sign {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 36px;
+}
