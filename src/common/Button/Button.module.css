@@ -71,6 +71,10 @@
     background: center no-repeat url('./icons/arrow_down-focused.svg');
 }
 
+.button_text_color {
+    background: center no-repeat url('./icons/text_color.svg');
+}
+
 .button_arrow_up {
     background: center no-repeat url('./icons/arrow_up-default.svg');
 }
@@ -79,7 +83,7 @@
     background: center no-repeat url('./icons/arrow_up-focused.svg');
 }
 
-
+.button_text_color:hover,
 .button_undo:hover,
 .button_redo:hover,
 .button_delete:hover,

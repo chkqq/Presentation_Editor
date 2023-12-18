@@ -7,7 +7,7 @@ import Palette from "../../common/Palette/Palette";
 import styles from "./EditColorWindow.module.css";
 import { connect } from "react-redux";
 import { AppDispatch } from "../../model/store";
-import { changeFillColor, changeStrokeColor, changeStrokeWidth, setBackground } from "../../model/actionCreators";
+import { changeFillColor, changeStrokeColor, changeStrokeWidth, changeTextProps, setBackground } from "../../model/actionCreators";
 import { useClickOutside } from '../../core/hooks/useClickOutside'
 
 interface EditColorWindowProps {
@@ -17,10 +17,11 @@ interface EditColorWindowProps {
     changeStrokeColor: (newColor: string) => void,
     changeFillColor: (newColor: string) => void,
     changeStrokeWidth: (newWidth: number) => void,
-    setBackground: (background: string) => void
+    setBackground: (background: string) => void,
+    setTextColor: (newColor: string) => void
 }
 
-function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillColor, changeStrokeColor, changeStrokeWidth, setBackground }: EditColorWindowProps) {
+function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillColor, changeStrokeColor, changeStrokeWidth, setBackground, setTextColor }: EditColorWindowProps) {
     const frameRef = useRef<HTMLDivElement>(null)
     useClickOutside(frameRef, onClick)
     
@@ -58,13 +59,18 @@ function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillCo
                         Контур
                     </div>
                 }
+                {drawMode === 'textColor' &&
+                    <div className={styles.head_text}>
+                        Текст
+                    </div>
+                }
                 <hr className={styles.hr} />
                 <div className={styles.palette_block}>
                     <div className={styles.secondary_text}>
                         Цвет
                     </div>
                     <div>
-                        <Palette 
+                        <Palette    
                             sendValue = {(colorValue) => setSelectedColor(colorValue)}
                         />
                     </div>
@@ -104,9 +110,10 @@ function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillCo
                         </div>
                         <Knob
                             value = {firstSelectedElement.figure !== undefined ? firstSelectedElement.figure.strokeWidth: 0}
+                            step={1}
                             onClick={(value) => changeStrokeWidth(value)}
                         />
-                    </div>    
+                    </div>
                 }
                 <hr className={styles.hr} />
                 <div className={styles.ready_button_block}>
@@ -142,6 +149,9 @@ function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillCo
                                 case 'strokeFigure':
                                     changeStrokeColor(selectedColor);
                                     break
+                                case 'textColor':
+                                    setTextColor(selectedColor);
+                                    break
                                 }
                             onClick()
                         }}
@@ -157,7 +167,8 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
         changeStrokeColor: (newColor: string) => dispatch(changeStrokeColor(newColor)),
         changeFillColor: (newColor: string) => dispatch(changeFillColor(newColor)),
         changeStrokeWidth: (newWidth: number) => dispatch(changeStrokeWidth(newWidth)),
-        setBackground: (background: string) => dispatch(setBackground(background))
+        setBackground: (background: string) => dispatch(setBackground(background)),
+        setTextColor: (newColor: string) => dispatch(changeTextProps(undefined, newColor))
     }
 }
 

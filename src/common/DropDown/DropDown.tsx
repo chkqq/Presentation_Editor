@@ -138,7 +138,7 @@ const DropDownOptionsToAdd = ({ activeFigure, activeImage, onClick, addObject, a
             activeImage
                 ?
                     <div className = {styles.image_types}>
-                        <Button 
+                        <Button
                             viewStyle = 'default'
                             text = 'С компьютера'
                             onClick = {() => {
@@ -151,24 +151,9 @@ const DropDownOptionsToAdd = ({ activeFigure, activeImage, onClick, addObject, a
                                         const urlImage = URL.createObjectURL(inputFile.files[0])
                                         addImage(urlImage)
                                     }
-                                   
                                 }
                                 inputFile.click();
                                 inputFile.remove();
-                                onClick()
-                            }}
-                        />
-                        <Button 
-                            viewStyle = 'default'
-                            text = 'С интернета'
-                            onClick = {() => {
-                                onClick()
-                            }}
-                        />
-                        <Button 
-                            viewStyle = 'default'
-                            text = 'С Анапы 2007'
-                            onClick = {() => {
                                 onClick()
                             }}
                         />

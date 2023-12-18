@@ -5,7 +5,7 @@ import { AppDispatch, uploadDocFunction } from '../model/store'
 import Button from "../common/Button/Button"
 import DropDown from "../common/DropDown/DropDown"
 import Knob from "../common/Knob/Knob"
-import TextField from "../common/Input/input" 
+import TextField from "../common/Input/input"
 
 import { Editor, Slide, SlideElement } from "../model/types"
 
@@ -24,6 +24,7 @@ type ToolBarProps = {
     changeTextFont: (font: string) => void,
     changeTextSize: (fontSize: number) => void,
     changeTitle: (newTitle: string) => void,
+    changeTextWeight: (fontWeight: number) => void,
 }
 
 const ToolBar = ({
@@ -36,7 +37,8 @@ const ToolBar = ({
     switchSlidePositions,
     changeTextFont,
     changeTextSize,
-    changeTitle
+    changeTitle,
+    changeTextWeight,
 }: ToolBarProps) => {
     const [rename, setRename] = useState(false);
 
@@ -156,6 +158,7 @@ const ToolBar = ({
                         onClick = {(newMode) => setDrawBlock(newMode)}
                         changeTextFont={changeTextFont}
                         changeTextSize={changeTextSize}
+                        changeTextWeight={changeTextWeight}
                     />
                 </div>
             </div>
@@ -177,9 +180,10 @@ interface OptionalToolsProps {
     onClick: (newMode: string) => void,
     changeTextFont: (font: string) => void,
     changeTextSize: (fontSize: number) => void,
+    changeTextWeight: (fontWeight: number) => void,
 }
 
-function OptionalTools({ textSelected, figureSelected, firstSelectedElement, onClick, changeTextFont, changeTextSize }: OptionalToolsProps) {
+function OptionalTools({ textSelected, figureSelected, firstSelectedElement, onClick, changeTextFont, changeTextSize, changeTextWeight }: OptionalToolsProps) {
     if (!textSelected && figureSelected){
         return (
             <div className={styles.optional_tools_container}>
@@ -208,11 +212,21 @@ function OptionalTools({ textSelected, figureSelected, firstSelectedElement, onC
                     size="small"
                     placeholder={firstSelectedElement.textProps!.font}
                     onKeyUp={(value) => changeTextFont(value)}
-                /> 
+                />
                 <p className={styles.optional_tools_text}>Размер шрифта</p>
-                <Knob 
-                    value={firstSelectedElement.textProps!.fontSize}    
+                <Knob
+                    value={firstSelectedElement.textProps!.fontSize}
+                    step = {1}
                     onClick={(value) => changeTextSize(value)}
+                />
+                <Knob
+                    value={firstSelectedElement.textProps!.fontWeight}
+                    step = {100}
+                    onClick={(value) => changeTextWeight(value)}
+                />
+                <Button
+                    viewStyle="text_color"
+                    onClick={() => onClick('textColor')}
                 />
             </div>
         )
@@ -224,7 +238,7 @@ function OptionalTools({ textSelected, figureSelected, firstSelectedElement, onC
 
 function mapStateToProps(state: Editor) {
     const indexSlide: number = state.presentation.slides.findIndex(slide => slide.slideId === state.presentation.currentSlideIds[0]);
-    return { 
+    return {
         slide: state.presentation.slides[indexSlide],
         title: state.presentation.title
     }
@@ -238,7 +252,8 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
         removeSlides: () => dispatch(removeSlides()),
         switchSlidePositions: (orderShift: number) => dispatch(switchSlidePositions(orderShift)),
         changeTextFont: (font: string) => dispatch(changeTextProps(font)),
-        changeTextSize: (fontSize: number) => dispatch(changeTextProps(undefined, undefined, undefined, undefined, fontSize)),
+        changeTextSize: (fontSize: number) => dispatch(changeTextProps(undefined, undefined, undefined, fontSize)),
+        changeTextWeight: (fontWeight: number) => dispatch(changeTextProps(undefined, undefined, undefined, undefined, fontWeight)),
         changeTitle: (newTitle: string) => dispatch(changeTitle(newTitle)),
     }
 }

@@ -20,16 +20,13 @@ const Text = ({
     const [textValue, setTextValue] = useState(text.textValue)
 
     if (!text.fontSize) {
-        text.fontSize = 10;        
+        text.fontSize = 10;
     }
     if (!text.textColor) {
         text.textColor = '#000000'
     }
     if (!text.fontWeight) {
-        text.fontWeight = 'light'
-    }
-    if (!text.bgColor) {
-        text.bgColor = '#FFFFFF'
+        text.fontWeight = 100
     }
     return (
         <textarea
@@ -46,7 +43,7 @@ const Text = ({
                 'color': text.textColor,
                 'width': size.width,
                 'height': size.height
-            }}    
+            }}
         >{textValue}</textarea>
     )
 }

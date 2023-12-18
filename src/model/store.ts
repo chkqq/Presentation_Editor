@@ -56,7 +56,7 @@ export type ActionType = {
         bgColor?: string,
         textValue?: string,
         fontSize?: number,
-        fontWeight?: "light" | "regular" | "bold"
+        fontWeight?: number
     },
     newWidth?: number,
     newColor?: string,

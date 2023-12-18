@@ -59,10 +59,9 @@ function addObjectReducer(slide: Slide, element: string): Slide {
             newEl.textProps = {
                 font: 'Arial',
                 textColor: 'black',
-                bgColor: null,
-                textValue: 'Hello Kerim',
+                textValue: 'текст',
                 fontSize: 15,
-                fontWeight: 'regular'
+                fontWeight: 100
             }
             break;
         }
@@ -86,7 +85,7 @@ function addImageReducer(slide: Slide, urlImage: string): Slide {
             height: 100
         },
         image: urlImage
-    } 
+    }
     newSlide.elements.push(newEl);
     return newSlide
 }
@@ -109,7 +108,7 @@ function selectManyElementsReducer(slide: Slide, elementId: string): Slide {
     newSlide.selectedElementsIds.push(elementId);
     console.log(JSON.stringify(newSlide.selectedElementsIds))
     return newSlide
-} 
+}
 
 function changePositionReducer(slide: Slide, xShift: number, yShift: number): Slide {
     const newSlide = deepClone(slide) as Slide;
@@ -184,10 +183,9 @@ function changeTextPropsReducer(
     slide: Slide | undefined,
     font: string | undefined,
     textColor: string | undefined,
-    bgColor: string | undefined,
     textValue: string | undefined,
     fontSize: number | undefined,
-    fontWeight: "light" | "regular" | "bold" | undefined   
+    fontWeight: number | undefined
 ): Slide {
     const newSlide = deepClone(slide) as Slide;
     const selectedElementsId: Array<string> = newSlide.selectedElementsIds.concat();
@@ -196,9 +194,8 @@ function changeTextPropsReducer(
             const newElement: SlideElement = {
                 ...newSlide.elements[i],
                 textProps: {
-                    font: font !== undefined ? font : newSlide.elements[i].textProps!.font, 
+                    font: font !== undefined ? font : newSlide.elements[i].textProps!.font,
                     textColor: textColor !== undefined ? textColor : newSlide.elements[i].textProps!.textColor,
-                    bgColor: bgColor !== undefined ? bgColor : newSlide.elements[i].textProps!.bgColor,
                     textValue: textValue !== undefined ? textValue : newSlide.elements[i].textProps!.textValue,
                     fontSize: fontSize !== undefined ? fontSize : newSlide.elements[i].textProps!.fontSize,
                     fontWeight: fontWeight !== undefined ? fontWeight : newSlide.elements[i].textProps!.fontWeight,
@@ -304,14 +301,12 @@ function slideReducer(state: Slide, action: ActionType): Slide {
             return action.changePositionCoordinates !== undefined? changePositionReducer(state, action.changePositionCoordinates.xShift, action.changePositionCoordinates.yShift): deepClone(state) as Slide;
         case 'SWITCH_LAYER':
             return action.orderShift !== undefined? switchLayerReducer(state, action.orderShift): deepClone(state) as Slide;
-        
         case 'CHANGE_SIZE':
             return action.ChangeSizeArgs !== undefined? changeSizeReducer(state, action.ChangeSizeArgs.newWidth, action.ChangeSizeArgs.newHeight, action.ChangeSizeArgs.xShift, action.ChangeSizeArgs.yShift): deepClone(state) as Slide;
         case 'CHANGE_TEXT_PROPS':
             return action.ChangeTextArgs !== undefined? changeTextPropsReducer(state,
                 action.ChangeTextArgs.font,
                 action.ChangeTextArgs.textColor,
-                action.ChangeTextArgs.bgColor,
                 action.ChangeTextArgs.textColor,
                 action.ChangeTextArgs.fontSize,
                 action.ChangeTextArgs.fontWeight

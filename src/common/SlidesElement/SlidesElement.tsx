@@ -229,7 +229,7 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
         changePosition: (newX: number, newY: number) => dispatch(changePosition(newX, newY)),
         selectElement: (elementId: string) => dispatch(selectElement(elementId)),
         selectManyElements: (elementId: string) => dispatch(selectManyElements(elementId)),
-        changeTextValue: (value: string) => dispatch(changeTextProps(undefined, undefined, undefined, value)),
+        changeTextValue: (value: string) => dispatch(changeTextProps(undefined, undefined, value)),
         changeSize: (newWidth: number, newHeight: number, xShift: number, yShift: number) => dispatch(changeSize(newWidth, newHeight, xShift, yShift)),
         removeSelection: (elementId: string) => dispatch(removeSelection(elementId))
     }
