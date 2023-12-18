@@ -6,40 +6,16 @@ import SlideView from './common/Slide/Slide';
 import SlidesElement from './common/SlidesElement/SlidesElement'
 import SideBar from './sideBar/sideBar'
 import { AppDispatch } from './model/store';
-import { switchPreview } from './model/actionCreators';
 import { connect } from 'react-redux';
 import { useRef, useState } from 'react';
 
 interface AppProps {
     editor: Editor,
-    switchPreview: () => void
 }
 
 function App({
-    editor,
-    switchPreview
+    editor
 }: AppProps) {
-    if (editor.statePreview) {
-        const onKeyDown = (e: KeyboardEvent) => {
-            switch (e.key) {
-                case 'Escape':
-                    switchPreview();
-                    document.removeEventListener('keydown', onKeyDown);
-                    break;
-                case 'ArrowRight':
-                    if (indexSlide !== editor.presentation.slides.length - 1) {
-                        setIndexSlide(indexSlide + 1);    
-                    }
-                    break;
-                case 'ArrowLeft':
-                    if (indexSlide !== 0) {
-                        setIndexSlide(indexSlide - 1);
-                    }
-                    break;            
-            }
-        }
-        document.addEventListener('keydown', onKeyDown)
-    }
     const slideRef = useRef(null)
     const [indexSlide, setIndexSlide] = useState(editor.presentation.slides.findIndex(slide => slide.slideId === editor.presentation.currentSlideIds[0]));
     const slidesList = editor.presentation.slides.map((slide) => (
@@ -68,20 +44,6 @@ function App({
     return (
         <div className={styles.app}>
             {
-                editor.statePreview ?
-                <div 
-                    className={styles.preview_container}
-                    onKeyDown = {(e) => {
-                        if (e.key === 'Escape') {
-                            switchPreview()
-                        }
-                    }}
-                > 
-                    <div className={styles.preview_slide}> 
-                        {slidesList[indexSlide]} 
-                    </div>        
-                </div>
-                :
                 <div className={styles.app_content}>
                     <ToolBar />
                     <div className={styles.pres_view}>
@@ -100,10 +62,10 @@ function mapStateToProps(state: Editor) {
     }
 }
 
-const mapDispatchToProps = (dispatch: AppDispatch) => {
-    return {
-        switchPreview: () => dispatch(switchPreview())
-    }
-}
+// const mapDispatchToProps = (dispatch: AppDispatch) => {
+//     return {
+//         switchPreview: () => dispatch(switchPreview())
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

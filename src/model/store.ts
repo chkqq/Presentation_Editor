@@ -1,112 +1,20 @@
 import { createStore } from 'redux';
-import axios from "axios";
 import { Editor } from "./types"
 import { addActionToHistoryReducer, editorReducer } from './editor'
 import { presentationReducer } from './presentation';
 import { slideReducer } from './slide'
 import { deepClone } from '../core/functions/deepClone';
-import { uploadDoc, redo, undo, deleteSelected, switchLayer, copy, paste } from './actionCreators';
-import { getBase64FromPicture } from './export'
-import { useRef } from 'react';
+import { uploadDoc, deleteSelected, switchLayer, copy, paste } from './actionCreators';
 
 let initialState: Editor = {
     presentation: {
-        title: "Braviypresentation",
+        title: "Ваша презенташка",
         slides: [
             {
                 slideId: "0",
                 elements: [
-                    {
-                        elementId: "1",
-                        elementType: "figure",
-                        position: {
-                            x: 70,
-                            y: 150
-                        },
-                        size: {
-                            width: 200,
-                            height: 200
-                        },
-                        figure: {
-                            form: "circle",
-                            strokeColor: "#000000",
-                            strokeWidth: 10,
-                            fillColor: "#0000ff"
-                        }
-                    },
-                    {
-                        elementId: '2',
-                        elementType: "text",
-                        position: {
-                            x: 234,
-                            y: 111
-                        },
-                        size: {
-                            width: 50,
-                            height: 50
-                        },
-                        textProps: {
-                            font: 'Montserrat',
-                            textColor: "#000000",
-                            bgColor: "#FFFFFF",
-                            textValue: "Hello Kerim!",
-                            fontSize: 16,
-                            fontWeight: "bold"
-                        }
-                    },
-                    {
-                        elementId: '3',
-                        elementType: "figure",
-                        position: {
-                            x: 500,
-                            y: 400
-                        },
-                        size: {
-                            width: 100,
-                            height: 100
-                        },
-                        figure: {
-                            form: "rectangle",
-                            strokeColor: "#000000",
-                            strokeWidth: 10,
-                            fillColor: "#f0000f"
-                        }
-                    },
-                    {
-                        elementId: "4",
-                        elementType: "image",
-                        position: {
-                            x: 530,
-                            y: 50
-                        },
-                        size: {
-                            width: 100,
-                            height: 100
-                        },
-                        image: "https://www.institutps.ru/upload/images/teachers_photo/arnaberdiev_wide_v2.jpg"
-                    }
                 ],
-                background: "#FFF2AF",
-                selectedElementsIds: []
-            }, 
-            {
-                slideId: "1",
-                elements: [
-                    {
-                        elementId: "0",
-                        elementType: "image",
-                        position: {
-                            x: 54,
-                            y: 30
-                        },
-                        size: {
-                            width: 450,
-                            height: 59
-                        },
-                        image: "https://www.institutps.ru/upload/images/teachers_photo/arnaberdiev_wide_v2.jpg",
-                    }
-                ],
-                background: "#532232",
+                background: "#FFF",
                 selectedElementsIds: []
             }
         ],
@@ -120,11 +28,6 @@ let initialState: Editor = {
         slideBuffer: [],
         elementBuffer: []
     },
-    // colorTheme: {
-    //     mainColor: '#2824EE',
-    //     subColor: '#EEEEF2',
-    //     backColor: '#FFFFFF'
-    // },
     statePreview: false
 };
 
@@ -182,14 +85,8 @@ function uploadDocFunction() {
     inputFile.remove();
 }
 
-function addHotKeys() {
+function HotKeys() {
     window.addEventListener('keydown', function(event) {
-        if (event.code === 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-            store.dispatch(undo())
-        }
-        if (event.code === 'KeyY' && (event.ctrlKey || event.metaKey)) {
-            store.dispatch(redo())
-        }
         if (event.code === 'ArrowUp' && (event.ctrlKey || event.metaKey)) {
             store.dispatch(switchLayer(1))
         }
@@ -231,4 +128,4 @@ let store = createStore(mainReducer, localStorage.getItem("savedEditor") !== nul
 
 export type AppDispatch = typeof store.dispatch
 
-export { store, uploadDocFunction, addHotKeys }
+export { store, uploadDocFunction, HotKeys }

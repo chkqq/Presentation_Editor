@@ -14,30 +14,6 @@ function uploadDoc(newEditor: Editor) {
     }
 }
 
-function exportDoc() {
-    return {
-        type: 'EXPORT_DOCUMENT',
-    }
-}
-
-function switchPreview() {
-    return {
-        type: 'SWITCH_PREVIEW'
-    }
-}
-
-function undo() {
-    return {
-        type: 'UNDO'
-    }
-}
-
-function redo() {
-    return {
-        type: 'REDO'
-    }
-}
-
 function copy() {
     return {
         type: 'COPY'
@@ -218,7 +194,7 @@ function removeSelection(elementId: string) {
     }
 }
 
-export { uploadDoc, redo, undo, switchPreview, exportDoc, saveDoc, changeTitle, addSlide, removeSlides,
+export { uploadDoc, saveDoc, changeTitle, addSlide, removeSlides,
          switchSlide, selectOneSlide, selectManySlides, switchSlidePositions, setBackground,
          addObject, addImage, selectElement, selectManyElements, changePosition, changeSize, switchLayer,
          changeTextProps, changeStrokeWidth, changeStrokeColor, changeFillColor, deleteSelected, removeSelection,

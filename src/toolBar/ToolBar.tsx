@@ -11,7 +11,7 @@ import { Editor, Slide, SlideElement } from "../model/types"
 
 import styles from "./ToolBar.module.css"
 import EditColorWindow from "./editColorWindow/EditColorWindow";
-import { exportDoc, addSlide, changeTextProps, changeTitle, redo, removeSlides, saveDoc, switchPreview, switchSlidePositions, undo } from "../model/actionCreators";
+import {addSlide, changeTextProps, changeTitle, removeSlides, saveDoc, switchSlidePositions} from "../model/actionCreators";
 
 type ToolBarProps = {
     slide: Slide,
@@ -21,10 +21,6 @@ type ToolBarProps = {
     addSlide: () => void,
     removeSlides: () => void,
     switchSlidePositions: (orderShift: number) => void,
-    undo: () => void,
-    redo: () => void,
-    switchPreview: () => void,
-    exportDoc: () => void,
     changeTextFont: (font: string) => void,
     changeTextSize: (fontSize: number) => void,
     changeTitle: (newTitle: string) => void,
@@ -38,10 +34,6 @@ const ToolBar = ({
     addSlide,
     removeSlides,
     switchSlidePositions,
-    undo,
-    redo,
-    switchPreview,
-    exportDoc,
     changeTextFont,
     changeTextSize,
     changeTitle
@@ -69,12 +61,11 @@ const ToolBar = ({
     return (
         <div className={styles.toolbar}>
             <div className={styles.top_block}>
-                <div className={styles.logo}> </div>
                 <div className={styles.top_block_second}>
                     <div className={styles.rename_container}>
                     {
                         rename ?
-                            <TextField 
+                            <TextField
                                 size="big"
                                 onKeyUp = {(value) => {
                                     if (value !== '') {
@@ -92,6 +83,13 @@ const ToolBar = ({
                         <div className={styles.outline_button}>
                             <Button 
                                 viewStyle='outline' 
+                                text='Переименовать' 
+                                onClick={() => setRename(!rename)}
+                            />
+                        </div>
+                        <div className={styles.outline_button}>
+                            <Button 
+                                viewStyle='outline' 
                                 text='Сохранить' 
                                 onClick={() => saveDoc()}
                             />
@@ -101,13 +99,6 @@ const ToolBar = ({
                                 viewStyle='outline' 
                                 text='Загрузить' 
                                 onClick={() => uploadDoc()}
-                            />
-                        </div>
-                        <div className={styles.outline_button}>
-                            <Button 
-                                viewStyle='outline' 
-                                text='Переименовать' 
-                                onClick={() => setRename(!rename)}
                             />
                         </div>
                     </div>
@@ -141,16 +132,10 @@ const ToolBar = ({
                         />
                     </div>
                     <div className={styles.icon_button}>
-                        <Button
-                            viewStyle='undo'
-                            onClick={() => undo()}
-                        />
+                        <button />
                     </div>
                     <div className={styles.icon_button}>
-                        <Button
-                            viewStyle='redo'
-                            onClick={() => redo()}
-                        />
+                        <button />
                     </div>
                 </div>
                 <div className={styles.slide_editor_buttons_block}>
@@ -164,7 +149,7 @@ const ToolBar = ({
                             onClick={() => setDrawBlock('backgroundSlide')}
                         />
                     </div>
-                    <OptionalTools 
+                    <OptionalTools
                         textSelected = {textSelected}
                         figureSelected = {figureSelected}
                         firstSelectedElement = {firstSelectedElement}
@@ -172,22 +157,6 @@ const ToolBar = ({
                         changeTextFont={changeTextFont}
                         changeTextSize={changeTextSize}
                     />
-                </div>
-                <div className={styles.result_buttons_block}>
-                    <div className={styles.outline_button}>
-                        <Button
-                            viewStyle='outline'
-                            text='Просмотр'
-                            onClick={() => switchPreview()}
-                        />
-                    </div>
-                    <div className={styles.outline_button}>
-                        <Button
-                            viewStyle='outline'
-                            text='Экспорт'
-                            onClick={() => exportDoc()}
-                        />
-                    </div>
                 </div>
             </div>
             {
@@ -199,10 +168,7 @@ const ToolBar = ({
                 />
             }
         </div>
-        
     )}
-
-    
 
 interface OptionalToolsProps {
     textSelected: boolean,
@@ -271,10 +237,6 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
         addSlide: () => dispatch(addSlide()),
         removeSlides: () => dispatch(removeSlides()),
         switchSlidePositions: (orderShift: number) => dispatch(switchSlidePositions(orderShift)),
-        undo: () => dispatch(undo()),
-        redo: () => dispatch(redo()),
-        switchPreview: () => dispatch(switchPreview()),
-        exportDoc: () => dispatch(exportDoc()),
         changeTextFont: (font: string) => dispatch(changeTextProps(font)),
         changeTextSize: (fontSize: number) => dispatch(changeTextProps(undefined, undefined, undefined, undefined, fontSize)),
         changeTitle: (newTitle: string) => dispatch(changeTitle(newTitle)),
