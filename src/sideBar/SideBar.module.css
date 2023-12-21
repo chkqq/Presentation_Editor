@@ -1,6 +1,6 @@
 .sidebar_container {
-    max-height: 83.5vh;
-    width: 350px;
+    max-height: 88.5vh;
+    width: 330px;
     background-color: #757575;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .sidebar_element_selected {
-    background-color: rgba(40, 36, 238, 0.1);
+    background-color: #505050;
 }
 
 .scaled_slide {
@@ -36,7 +36,7 @@
 
     width: 868px;
     height: 634px;
-    
+
     border-style: solid;
     border-width: 8px;
     border-radius: 20px;
@@ -55,7 +55,6 @@
 }
 
 .slide_list {
-    margin-top: 11px;
     max-height: inherit;
     scrollbar-width: 10px;
     overflow-y: auto;

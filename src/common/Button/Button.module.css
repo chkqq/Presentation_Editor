@@ -1,5 +1,4 @@
 .button {
-    
     min-width: 41px;
     height: 35px;
 
@@ -32,11 +31,12 @@
 }
 
 .button_outline {
-    border: 1px solid #f5f5f5;
+    /* border: 1px solid #f5f5f5; */
 }
 
 .button_outline:hover {
-    border-color: #ff9100;
+    /* border-color: #ff9100; */
+    background-color: #181818;
 }
 
 .button_delete {
@@ -71,16 +71,20 @@
     background: center no-repeat url('./icons/arrow_down-focused.svg');
 }
 
-.button_text_color {
-    background: center no-repeat url('./icons/text_color.svg');
-}
-
 .button_arrow_up {
     background: center no-repeat url('./icons/arrow_up-default.svg');
 }
 
 .button_arrow_up:hover {
     background: center no-repeat url('./icons/arrow_up-focused.svg');
+}
+
+.button_text_color {
+    background: center no-repeat url('./icons/text_color-default.svg');
+}
+
+.button_text_color:hover {
+    background: center no-repeat url('./icons/text_color-focused.svg');
 }
 
 .button_text_color:hover,

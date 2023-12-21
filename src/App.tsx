@@ -5,7 +5,7 @@ import styles from './App.module.css';
 import SlideView from './common/Slide/Slide';
 import SlidesElement from './common/SlidesElement/SlidesElement'
 import SideBar from './sideBar/sideBar'
-import { AppDispatch } from './model/store';
+// import { AppDispatch } from './model/store';
 import { connect } from 'react-redux';
 import { useRef, useState } from 'react';
 

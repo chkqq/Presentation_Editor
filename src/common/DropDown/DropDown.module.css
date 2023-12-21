@@ -18,7 +18,7 @@
     color: #f5f5f5;
 
     box-sizing: border-box;
-    border: 1px solid #f5f5f5;
+    /* border: 1px solid #f5f5f5; */
     border-radius: 5px;
     background: center no-repeat none;
 
@@ -34,8 +34,9 @@
 }
 
 .drop_down_active {
-    border-color: #ff9100;
+    /* border-color: #ff9100; */
     color: #ff9100;
+    background-color: #181818;
 }
 
 .text_container::after {
@@ -90,7 +91,7 @@
 }
 
 .figure_active, .image:hover, .text:hover {
-    background: rgba(40, 36, 238, 0.1);
+    background: #505050;
     color: #ff9100;
 }
 
@@ -137,7 +138,7 @@
 
 .rectangle:hover, .triangle:hover, .circle:hover {
     cursor: pointer;
-    background-color: rgba(40, 36, 238, 0.1);
+    background-color: #505050;
 }
 
 .rectangle:hover {

@@ -5,7 +5,7 @@ import { AppDispatch, uploadDocFunction } from '../model/store'
 import Button from "../common/Button/Button"
 import DropDown from "../common/DropDown/DropDown"
 import Knob from "../common/Knob/Knob"
-import TextField from "../common/Input/input"
+import TextField from "../common/TextField/TextField"
 
 import { Editor, Slide, SlideElement } from "../model/types"
 
@@ -54,11 +54,10 @@ const ToolBar = ({
             {
                 figureSelected = false;
             }
-        }   
+        }
     )
     const [drawBlock, setDrawBlock] = useState('absent')
     const firstSelectedElement: SlideElement = slide.elements.find(element => element.elementId === slide.selectedElementsIds[0])!;
-    
 
     return (
         <div className={styles.toolbar}>

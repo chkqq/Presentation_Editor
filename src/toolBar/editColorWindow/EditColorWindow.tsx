@@ -70,7 +70,7 @@ function EditColorWindow({ drawMode, firstSelectedElement, onClick, changeFillCo
                         Цвет
                     </div>
                     <div>
-                        <Palette    
+                        <Palette
                             sendValue = {(colorValue) => setSelectedColor(colorValue)}
                         />
                     </div>
